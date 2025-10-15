@@ -7,26 +7,41 @@ permissions:
   contents: write
   pages: write
   id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0           # IMPORTANT: get full history so we can pull/rebase
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python generate_prompts.py
-      - name: Commit artifacts
+
+      # Pull latest BEFORE we generate/commit
+      - name: Sync with remote
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+
+      - name: Generate idea pack
+        run: python generate_prompts.py
+
+      - name: Commit artifacts
+        run: |
           git add -A
           git commit -m "Update idea pack" || echo "No changes"
-          git push
+          # Try push; if remote advanced between steps, rebase then push
+          git push || (git pull --rebase origin "${GITHUB_REF_NAME}" && git push)
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
