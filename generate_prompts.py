@@ -9,11 +9,11 @@ def load_cat_canon(path="cat.json"):
     "coat": "plush grey with white muzzle, chest, and paws",
     "eyes": "oversized bright green",
     "size": "small, plush, round-faced",
-    "accessories": "navy tie with white diagonal stripes; tiny espresso cup (sometimes); pen that doubles as a red laser pointer",
+    "accessories": "navy tie with white diagonal stripes; tiny espresso cup (sometimes); pen",
     "voice": "executive silent-film vibe (no dialogue; occasional approving hum)",
-    "personality": "decisive, mildly smug, caffeine-powered; playful with laser dots; consummate boardroom boss",
+    "personality": "decisive, mildly smug, caffeine-powered; playful; consummate boardroom boss",
     "signature_moves": [
-      "pen tap that makes a red laser dot", "dramatic espresso sip",
+      "dramatic espresso sip",
       "slow tail flick before a decision", "pressing the desk intercom", "approving nod"
     ],
     "disallowed": ["more than one cat", "crowded scenes", "tiny unreadable text", "real company logos/brands", "overt politics"],
