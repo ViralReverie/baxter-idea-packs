@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>{CAT['name']} Idea Pack — 2025-10-15 15:23</title>
+<style>
+body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:24px auto;padding:0 16px}
+.card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}
+button{padding:8px 12px;border-radius:10px;border:1px solid #ccc;cursor:pointer}
+#counter{font-weight:600}
+.small{color:#444;font-size:13px}
+pre{white-space:pre-wrap}
+</style>
+</head>
+<body>
+<h1>{CAT['name']} Idea Pack — 2025-10-15 15:23</h1>
+<p class="small">Canon: {CAT['one_liner']}</p>
+<p class="small">{CONTINUITY_RULES}</p>
+<p>Click <b>Copy Next</b>, then paste into Sora and hit Generate. Repeat.</p>
+<p>Remaining: <span id="counter"></span></p>
+<div id="controls" class="card">
+  <button id="copyBtn">Copy Next</button>
+  <a href="latest.txt" download style="margin-left:8px">Download .txt</a>
+</div>
+<div id="list"></div>
+<script>
+let ideas = []; let idx = 0;
+async function load() {
+  const r = await fetch('latest.json'); ideas = await r.json();
+  idx = 0; updateCounter();
+  const list = document.getElementById('list');
+  list.innerHTML = ideas.map((it,i)=>`<div class="card"><b>#${i+1} — ${it.title}</b><pre>${it.prompt_for_sora}</pre></div>`).join('');
+}
+function updateCounter() { document.getElementById('counter').textContent = (ideas.length - idx); }
+async function copyNext() {
+  if (idx >= ideas.length) return;
+  await navigator.clipboard.writeText(ideas[idx].prompt_for_sora);
+  idx++; updateCounter();
+}
+document.getElementById('copyBtn').addEventListener('click', copyNext);
+load();
+</script>
+</body></html>
