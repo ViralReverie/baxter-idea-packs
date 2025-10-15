@@ -5,20 +5,22 @@ random.seed()
 
 def load_cat_canon(path="cat.json"):
   default = {
-    "name": "Baxter von Pounce",
-    "coat": "plush grey with white muzzle, chest, and paws",
-    "eyes": "oversized bright green",
-    "size": "small, plush, round-faced",
-    "accessories": "navy tie with white diagonal stripes; tiny espresso cup (sometimes); pen",
-    "voice": "executive silent-film vibe (no dialogue; occasional approving hum)",
-    "personality": "decisive, mildly smug, caffeine-powered; playful; consummate boardroom boss",
-    "signature_moves": [
-      "dramatic espresso sip",
-      "slow tail flick before a decision", "pressing the desk intercom", "approving nod"
-    ],
-    "disallowed": ["more than one cat", "crowded scenes", "tiny unreadable text", "real company logos/brands", "overt politics"],
-    "one_liner": "A plush grey-and-white executive cat with huge green eyes and a navy striped tie, ruling a NYC boardroom."
-  }
+  "name": "Baxter von Pounce",
+  "coat": "plush grey with white muzzle, chest, and paws",
+  "eyes": "oversized bright green",
+  "size": "small, plush, round-faced",
+  "accessories": "navy tie with white diagonal stripes; tiny espresso cup; pen",
+  "voice": "executive silent-film vibe (no dialogue; occasional approving hum)",
+  "personality": "decisive, mildly smug, caffeine-powered; consummate boardroom boss",
+  "signature_moves": [
+    "dramatic espresso sip",
+    "slow tail flick before a decision",
+    "pressing the desk intercom",
+    "approving nod"
+  ],
+  "disallowed": ["more than one cat", "crowded scenes", "tiny unreadable text", "real company logos/brands", "overt politics"],
+  "one_liner": "A plush grey-and-white executive cat with huge green eyes and a navy striped tie, ruling a NYC boardroom."
+}
   if os.path.exists(path):
     try:
       with open(path, "r", encoding="utf-8") as f:
@@ -41,7 +43,7 @@ SETTINGS = [
   "yellow taxi back seat", "revolving door in a corporate lobby"
 ]
 OBJECTS = ["banana", "sticky note", "umbrella", "rolling chair", "water bottle",
-           "paper airplane", "backpack", "mop", "cardboard box", "laser pointer"]
+           "paper airplane", "backpack", "mop", "cardboard box"]
 MOTIFS = ["unexpected echo", "polite escalation", "mistimed wave", "synchronized oops",
           "fake-out ending", "overly literal sign", "slow-burn stare", "prop betrayal"]
 CAMERA = [
