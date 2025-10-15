@@ -6,7 +6,7 @@ on:
 permissions:
   pages: write
   id-token: write
-  contents: read   # we only read the repo; no pushes
+  contents: read   # we read code; we do NOT push commits
 
 jobs:
   build:
