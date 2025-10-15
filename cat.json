@@ -1,0 +1,24 @@
+{
+  "name": "Baxter von Pounce",
+  "coat": "plush grey with white muzzle, chest, and paws",
+  "eyes": "oversized bright green",
+  "size": "small, plush, round-faced",
+  "accessories": "navy tie with white diagonal stripes; tiny espresso cup (sometimes); pen that doubles as a red laser pointer",
+  "voice": "executive silent-film vibe (no dialogue; occasional approving hum)",
+  "personality": "decisive, mildly smug, caffeine-powered; playful with laser dots; consummate boardroom boss",
+  "signature_moves": [
+    "pen tap that makes a red laser dot",
+    "dramatic espresso sip",
+    "slow tail flick before a decision",
+    "pressing the desk intercom",
+    "approving nod"
+  ],
+  "disallowed": [
+    "more than one cat",
+    "crowded scenes",
+    "tiny unreadable text",
+    "real company logos/brands",
+    "overt politics"
+  ],
+  "one_liner": "A plush grey-and-white executive cat with huge green eyes and a navy striped tie, ruling a NYC boardroom."
+}
