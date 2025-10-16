@@ -1,21 +1,27 @@
 
-# Baxter von Pounce — Idea Packs (Free)
+# Baxter Simple Pipeline (10s Sora prompts)
 
-This repo builds **twice-daily** packs of 30 Sora-ready prompts about your CEO cat, **Baxter von Pounce**.
+**What it does**
+- Generates 30 prompts (exactly **10 seconds** each)
+- One funny beat per video; Baxter shows a final caption comment
+- Optional trend influence from Reddit/YouTube (last 24h)
+- Publishes a "Copy Next" page via GitHub Pages
 
-## Files
-- `cat.json` — Baxter's canon (appearance, vibe). Edit anytime.
-- `generate_prompts.py` — Free, template-based idea generator (no API keys).
-- `.github/workflows/schedule.yml` — GitHub Actions workflow (cron + Pages deploy).
-- `public/index.html` — "Copy Next" page (auto-generated).
-- `public/latest.json` / `public/latest.txt` — Current pack (auto-generated).
+## Quick start
+1. Create a GitHub repo and upload these files (keep folder structure).
+2. Go to **Settings → Pages → Source = GitHub Actions**.
+3. Add secrets (Settings → Secrets and variables → Actions → New repository secret):
+   - `REDDIT_CLIENT_ID`
+   - `REDDIT_CLIENT_SECRET`
+   - `REDDIT_USER_AGENT` (e.g., `baxter-trends/1.0 by u/YourRedditName`)
+   - (optional) `YOUTUBE_API_KEY`
+4. **Actions tab → Baxter Secrets Check → Run workflow**.
+   - If green: your secrets are good.
+5. **Actions tab → Baxter Pages Simple → Run workflow**.
+6. Open your Pages URL: `https://<you>.github.io/<repo>/`
 
-## How it works
-The workflow runs at **7am & 7pm ET** (11:00 & 23:00 UTC), generates 30 prompts, and publishes them to GitHub Pages.
+If secrets are missing or wrong, the pipeline still runs using defaults (no trend influence).
 
-## Local run
-```
-python generate_prompts.py
-```
-
-Then open `public/index.html` in a browser.
+## Change schedule
+Edit cron in `.github/workflows/baxter_pages_simple.yml`:
+`0 11,23 * * *` = 7am & 7pm ET.
